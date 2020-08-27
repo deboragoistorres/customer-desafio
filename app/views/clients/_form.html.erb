@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="form-group m-5">
+    <!-- <h2 class="mb-5">Cadastro de cliente</h2> -->
+    <%= simple_form_for @client do |f| %>
+        <%= f.input :full_name, label:"Nome do cliente:", input_html: { class: "form-control"} %>
+        <%= f.input :phone, label: "Telefone", input_html: { class: "form-control", :placeholder => "+55 -- ---- ----", :value => "+55 " } %>
+        <%= f.input :email, label: "Email", required: true, error: 'Email is required', input_html: { class: "form-control", :placeholder => "user@email.com" } %>
+        <%= f.input :register_date, as: :date %>
+        <%= f.button :submit, "Enviar", class:"btn btn-success mt-3" %>
+    <% end %>
+    <%= link_to "Voltar", clients_path, class:'btn btn-outline-secondary mt-5' %>
+  </div>
+</div>

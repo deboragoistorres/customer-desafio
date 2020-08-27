@@ -1,0 +1,33 @@
+ <div class="container mt-5">
+  <div class="row">
+    <h3> Sessão Clientes </h3>
+    <table class="table mt-3">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">Nome</th>
+          <th scope="col">Email</th>
+          <th scope="col">Telefone</th>
+          <th scope="col">Data de registro</th>
+          <th scope="col", class="d-flex justify-content-center">Ações</th>
+        </tr>
+      </thead>
+
+      <% @clients.each do |client| %>
+        <tbody>
+          <tr>
+            <td><%= link_to client.full_name, client_path(client)%></td>
+            <td><%= client.email%></td>
+            <td><%= client.phone %></td>
+            <td><%= client.register_date %></td>
+            <td class="d-flex justify-content-center"><%= link_to "Editar cliente", edit_client_path(client), class:"btn btn-outline-secondary mr-2" %>
+            <%= link_to "Deletar cliente", client_path(client), method: :delete, data: { confirm: "Você tem certeza que deseja deletar?" }, class:"btn btn-outline-secondary mr-2" %>
+            </td>
+            </td>
+          </tr>
+        </tbody>
+      <% end %>
+    </table>
+    <%= link_to "Cadastrar cliente", 'clients/new', class:"btn btn-outline-secondary" %>
+  </div>
+</div>
+

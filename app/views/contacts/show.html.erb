@@ -1,0 +1,22 @@
+<div class="container mt-5">
+  <div class="row">
+    <h1> Informações</h1>
+    <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">Clientes</th>
+          <th scope="col">Contatos</th>
+        </tr>
+      </thead>
+        <tbody>
+          <tr>
+            <% @client.contacts.each do |contact| %>
+            <td> %> contact.full_name </td>
+          </tr>
+        </tbody>
+    </table>
+    <%= link_to "Voltar", clients_path, class:"btn btn-outline-secondary" %>
+  </div>
+</div>
+
+<!--  -->

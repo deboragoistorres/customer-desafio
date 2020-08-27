@@ -1,0 +1,29 @@
+<div class="container mt-5">
+  <div class="row">
+    <h3> Sessão Contatos de:  <strong class="text-info"><%= @client.full_name%></strong> </h3>
+    <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">Nome do contato</th>
+          <th scope="col">Email do contato</th>
+          <th scope="col">Telefone do contato</th>
+          <th scope="col">Ações</th>
+        </tr>
+      </thead>
+        <tbody>
+          <% @client.contacts.each do |contact| %>
+            <tr>
+               <td><%= contact.full_name%></td>
+               <td><%= contact.email%></td>
+               <td><%= contact.phone%></td>
+              <td><%= link_to "Editar contato", edit_contact_path(contact.id), class:"btn btn-outline-secondary" %>
+                <%= link_to "Deletar contato", contact_path(contact), method: :delete, data: { confirm: "Você tem certeza que deseja deletar?" }, class:"btn btn-outline-secondary mr-2" %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+    </table>
+    <%= link_to "Cadastrar contato", new_client_contact_path(@client.id), class:"btn btn-outline-secondary" %>
+    <%= link_to "Voltar", clients_path, class:"btn btn-outline-secondary ml-1" %>
+  </div>
+</div>
